@@ -76,17 +76,3 @@ flutter run -d chrome
 ```
 
 This preview requires Chrome and does not support the current WebView sandbox.
-
-## Configuration
-
-No account, API key, or backend service is required. The username and lesson progress are stored on the device through `shared_preferences`. Clearing the app's local data resets them.
-
-| Location | Purpose |
-| --- | --- |
-| [pubspec.yaml](pubspec.yaml) | Package versions, bundled assets, fonts, and launcher icon settings |
-| [lib/screens/lesson.dart](lib/screens/lesson.dart) | Lesson explanations and practice problems |
-| [lib/screens/challenges.dart](lib/screens/challenges.dart) | Random challenge content |
-| [assets/blockly/index.html](assets/blockly/index.html) | Blockly setup, Python generation, and Skulpt execution |
-| [lib/screens/sandbox.dart](lib/screens/sandbox.dart) | Flutter WebView and JavaScript message channels |
-
-The bridge works in both directions: Flutter calls `executePython()` in the WebView; JavaScript sends generated code, execution results, and input prompts through `CodeChannel`, `OutputChannel`, and `InputChannel`. Flutter returns entered text through `receiveFlutterInput(...)`.
